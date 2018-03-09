@@ -5,15 +5,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EShop.Models;
+using ApplicationCore.Interfaces;
+using EShop.Infrastructure;
+using ApplicationCore.Entities;
 
 namespace EShop.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRepository<Product> _productRepository;
+
+        public HomeController(IRepository<Product> productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+
         public IActionResult Index()
         {
-            return View();
+            //Product np = new Product();
+
+            //np.Name = "Name 2";
+            //np.Price = 100; 
+            //np.Description = "New product 1";
+
+            //_productRepository.Add(np);
+
+            return RedirectToAction("Index", "Home", new { area = "Admin" });
+            //return View();
         }
+
+   
 
         public IActionResult About()
         {
