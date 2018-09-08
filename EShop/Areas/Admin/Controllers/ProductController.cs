@@ -25,7 +25,7 @@ namespace WEB.Areas.Admin.Controllers
 
             return View(productModel);
         }
-
+         //333cff hhh
         // GET: Admin/ProductAttributeValues/Create rrr
         public IActionResult Create()
         {
