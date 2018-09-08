@@ -12,8 +12,8 @@ using System;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(EShopContext))]
-    [Migration("20180119163247_Attributes")]
-    partial class Attributes
+    [Migration("20180310210710_Migrations")]
+    partial class Migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<int?>("IntValue");
 
+                    b.Property<int?>("ProductAttributeId");
+
                     b.Property<int?>("ProductAttributeValueId");
 
                     b.Property<int?>("ProductId");
@@ -36,6 +38,8 @@ namespace Infrastructure.Migrations
                     b.Property<string>("StringValue");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductAttributeId");
 
                     b.HasIndex("ProductAttributeValueId");
 
@@ -92,6 +96,10 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("ApplicationCore.Entities.Attributes.AdditionalInformation", b =>
                 {
+                    b.HasOne("ApplicationCore.Entities.Attributes.ProductAttribute", "ProductAttribute")
+                        .WithMany()
+                        .HasForeignKey("ProductAttributeId");
+
                     b.HasOne("ApplicationCore.Entities.Attributes.ProductAttributeValue", "ProductAttributeValue")
                         .WithMany()
                         .HasForeignKey("ProductAttributeValueId");

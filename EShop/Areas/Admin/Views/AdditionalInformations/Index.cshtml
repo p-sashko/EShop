@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ApplicationCore.Entities.Attributes.AdditionalInformation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductAttribute)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StringValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductAttributeValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductAttribute.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StringValue)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductAttributeValue.ValueString)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

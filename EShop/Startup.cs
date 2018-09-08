@@ -45,12 +45,13 @@ namespace EShop
 
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IAdditionalInformationsService, AdditionalInformationsService>();
             services.AddScoped<IProductAttributeValueRepository, ProductAttributeValueRepository>();
             //services.AddScoped<IProductRepository, ProductRepository>();
             //services.AddTransient<>(IProductRepository, ProductRepository);
             services.AddMvc();
 
-            services.AddDbContext<WEBContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("WEBContext")));
+            //services.AddDbContext<WEBContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("WEBContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

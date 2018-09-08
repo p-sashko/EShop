@@ -17,12 +17,12 @@ namespace Infrastructure.Data
 
         public ProductAttributeValue GetByIdWithItems(int? id)
         {
-            {
+            
                 return _dbContext.ProductAttributeValues.Include(o => o.ProductAttribute)
                     //.Include("OrderItems.ItemOrdered")
                     .SingleOrDefault(e => e.Id == id);
 
-            }
+            
         }
     }
 }

@@ -8,17 +8,19 @@ using ApplicationCore.Entities.Attributes;
 
 namespace WEB.Models
 {
-    public class WEBContext : DbContext
-    {
-        public WEBContext (DbContextOptions<WEBContext> options)
-            : base(options)
-        {
-        }
+    //public class WEBContext : DbContext
+    //{
+    //    public WEBContext (DbContextOptions<WEBContext> options)
+    //        : base(options)
+    //    {
+    //    }
 
-        public DbSet<Product> Product { get; set; }
+    //    public DbSet<Product> Product { get; set; }
 
-        public DbSet<ProductAttribute> ProductAttribute { get; set; }
+    //    public DbSet<ProductAttribute> ProductAttribute { get; set; }
 
-        public DbSet<ProductAttributeValue> ProductAttributeValue { get; set; }
-    }
+    //    public DbSet<ProductAttributeValue> ProductAttributeValue { get; set; }
+
+    //    public DbSet<ApplicationCore.Entities.Attributes.AdditionalInformation> AdditionalInformation { get; set; }
+    //}
 }

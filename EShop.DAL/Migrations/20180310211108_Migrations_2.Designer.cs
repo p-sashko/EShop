@@ -12,9 +12,10 @@ using System;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(EShopContext))]
-    partial class EShopContextModelSnapshot : ModelSnapshot
+    [Migration("20180310211108_Migrations_2")]
+    partial class Migrations_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,6 +88,8 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Name");
 
                     b.Property<int>("Price");
+
+                    b.Property<int>("Price2");
 
                     b.HasKey("Id");
 

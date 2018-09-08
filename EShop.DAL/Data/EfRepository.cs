@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApplicationCore.Interfaces;
 using ApplicationCore.Entities;
+using System.Linq.Expressions;
+using System;
 
 namespace Infrastructure.Data
 {
@@ -33,10 +35,20 @@ namespace Infrastructure.Data
             return _dbContext.Set<T>().SingleOrDefault(e => e.Id == id);
         }
 
-        public IEnumerable<T> List()
+        public IEnumerable<T> List(params Expression<Func<T, object>>[] includes)
         {
-            return _dbContext.Set<T>().ToList();
+            IQueryable<T> query = _dbContext.Set<T>();
+
+            foreach (Expression<Func<T, object>> include in includes)
+                query = query.Include(include);
+
+            return query.ToList();
         }
+
+        //public IEnumerable<T> List()
+        //{
+        //    return _dbContext.Set<T>().ToList();
+        //}
 
         public T Add(T entity)
         {
@@ -57,5 +69,11 @@ namespace Infrastructure.Data
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
+
+        //public void Include<TProperty>(Expression<Func<T, TProperty>> navigationPropertyPath)
+        //{
+        //    _dbContext.Set<T>() = _dbContext.Set<T>().Include(navigationPropertyPath);
+        //}
+
     }
 }

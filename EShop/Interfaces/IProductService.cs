@@ -8,6 +8,14 @@ namespace WEB.Interfaces
 {
     public interface IProductService
     {
-        ProductIndexViewModel GetProductItems();
+        ProductIndexViewModel GetItems();
+
+        void Add(ProductItemViewModel productItem);
+
+        void Delete(Int32? id);
+
+        ProductItemViewModel GetById(Int32? id);
+
+        void Update(ProductItemViewModel productItem);
     }
 }

@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\ApplicationCore.csproj" />
     <ProjectReference Include="..\EShop.DAL\Infrastructure.csproj" />
   </ItemGroup>

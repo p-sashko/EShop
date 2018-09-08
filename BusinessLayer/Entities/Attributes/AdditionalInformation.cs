@@ -25,14 +25,13 @@ namespace ApplicationCore.Entities.Attributes
         #region Значення характеристики
         public int? ProductAttributeValueId { get; set; }
 
-        [Display(Name = "Значення")]
+        [Display(Name = "Значення (Довідник)")]
         public ProductAttributeValue ProductAttributeValue { get; set; }
 
-        /// <summary>
-        /// Simple type
-        /// </summary>
+        [Display(Name = "Значення (Числове)")]
         public int? IntValue { get; set; }//IntValue
 
+        [Display(Name = "Значення (Рядок)")]
         public string StringValue { get; set; }//StringValue
         #endregion
 
